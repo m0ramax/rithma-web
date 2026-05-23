@@ -2,26 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      #1a1a24 0%,
+      #2c2c3e 50%,
+      #1a1a24 100%
+    );
+    background-size: 800px 100%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  :root {
+    --background: #0c0c0f;
+    --foreground: #f2f0ea;
+    --card: #1a1a24;
+    --card-foreground: #f2f0ea;
+    --popover: #1a1a24;
+    --popover-foreground: #f2f0ea;
+    --primary: #e8a020;
+    --primary-foreground: #0c0c0f;
+    --secondary: #1a1a24;
+    --secondary-foreground: #f2f0ea;
+    --muted: #22222e;
+    --muted-foreground: #8a8a9e;
+    --accent: #22222e;
+    --accent-foreground: #e8a020;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #252532;
+    --input: #22222e;
+    --ring: #e8a020;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
   }
 }
