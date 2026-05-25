@@ -374,7 +374,7 @@ function PlatformColumn({ platform, playlists, loading, onTransfer }: PlatformCo
           ? Array.from({ length: 5 }).map((_, i) => (
               <PlaylistSkeleton key={i} color={color} />
             ))
-          : playlists === null
+          : playlists == null
           ? <NotConnectedState platform={platform} color={color} />
           : playlists.length === 0
           ? <EmptyColumn platform={platform} color={color} />
